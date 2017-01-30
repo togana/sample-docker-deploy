@@ -1,0 +1,20 @@
+version: '3'
+services: 
+  registry:
+    image: registry:2.6.0
+    ports:
+      - 5000:5000
+    environment:
+      REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /registry
+      REGISTRY_STORAGE_DELETE_ENABLED: 'true'
+    volumes:
+      - /user/local/data/registry:/registry
+  web:
+    image: hyper/docker-registry-web:v0.1.2
+    ports:
+      - 8080:8080
+    environment:
+      REGISTRY_HOST: registry
+      REGISTRY_URL: 'http://registry:5000/v2'
+      REGISTRY_NAME: 'registry:5000'
+      REGISTRY_READONLY: 'false'
