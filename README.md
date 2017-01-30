@@ -41,10 +41,12 @@ local(ブラウザ) -> app(コンテナ)
 
 ## ディレクトリ構成
 
+```
 ├── README.md          (このファイル)
 ├── nginx-app          (appのイメージ←ここは別のリポジトリを作成して管理すべきですがサンプルなのでまとめました)
 ├── registry           (swarmを使う場合dockrehub or registryが必須なので非公開環境を用意)
 └── sh                 (実行シェル)
+```
 
 ## docker-registry+swarmサーバの準備
 
