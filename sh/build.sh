@@ -1,4 +1,5 @@
 #!/bin/sh
+set -eu
 
 registry=${1:-"localhost"}
 tag=${2:-"latest"}
