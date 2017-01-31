@@ -1,4 +1,5 @@
 #!/bin/sh
+set -eu
 
 # init_docker_registry
 cd ./registry
