@@ -58,18 +58,16 @@ $ ./sh/init.sh
 
 ```
 # args
-#  - docker-registryのアクセスポイント(defalt: localhost)
 #  - tag名(defalt: latest)
-$ ./sh/build.sh $(docker-machine ip container-registry):5000 latest
+$ ./sh/build.sh latest
 ```
 
 ## デプロイ
 
 ```
 # args
-#  - docker-registryのアクセスポイント(defalt: localhost)
 #  - tag名(defalt: latest)
-$ ./sh/deploy.sh $(docker-machine ip container-registry):5000 latest
+$ ./sh/deploy.sh latest
 ```
 
 ## 確認

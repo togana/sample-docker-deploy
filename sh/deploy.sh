@@ -1,10 +1,8 @@
 #!/bin/sh
 set -eu
 
-registry=${1:-"localhost"}
-tag=${2:-"latest"}
+tag=${1:-"latest"}
 
-docker-machine start sample-docker-deploy
 docker-machine env sample-docker-deploy
 eval $(docker-machine env sample-docker-deploy)
 
@@ -12,7 +10,7 @@ cat << EOS > docker-compose.yml
 version: '3'
 services:
   web:
-    image: ${registry}/nginx-app:${tag}
+    image: $(docker-machine ip container-registry):5000/nginx-app:${tag}
     ports:
       - '80:80'
     deploy:

@@ -1,17 +1,11 @@
 #!/bin/sh
 set -eu
 
-registry=${1:-"localhost"}
-tag=${2:-"latest"}
+tag=${1:-"latest"}
 
 cd ./nginx-app
-docker-machine create -d virtualbox \
-    --engine-insecure-registry ${registry} \
-    --engine-opt bip=172.100.42.1/16 \
-    build-app
-docker-machine start build-app
-docker-machine env build-app
-eval $(docker-machine env build-app)
+docker-machine env build
+eval $(docker-machine env build)
 
-docker build -t ${registry}/nginx-app:${tag} .
-docker push ${registry}/nginx-app:${tag}
+docker build -t $(docker-machine ip container-registry):5000/nginx-app:${tag} .
+docker push $(docker-machine ip container-registry):5000/nginx-app:${tag}

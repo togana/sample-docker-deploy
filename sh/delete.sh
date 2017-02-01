@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker-machine rm -f build-app container-registry sample-docker-deploy
+docker-machine rm -f build container-registry sample-docker-deploy
