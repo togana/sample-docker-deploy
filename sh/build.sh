@@ -3,7 +3,8 @@ set -eu
 
 tag=${1:-"latest"}
 
-cd ./nginx-app
+cd $(cd $(dirname $0);pwd)/../nginx-app
+
 docker-machine env build
 eval $(docker-machine env build)
 

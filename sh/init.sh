@@ -2,7 +2,7 @@
 set -eu
 
 # init_docker_registry
-cd ./registry
+cd $(cd $(dirname $0);pwd)/../registry
 docker-machine create -d virtualbox \
   --engine-opt bip=172.18.42.1/24 \
   container-registry
