@@ -79,5 +79,5 @@ $ curl http://$(docker-machine ip sample-docker-deploy)
 ## 片付け
 
 ```
-$ ./sh/delete.sh
+$ ./sh/remove.sh
 ```
